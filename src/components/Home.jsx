@@ -1,5 +1,13 @@
+import Hero from "./Hero";
+import TrendingSection from "./TrendingSection";
+import CategoryGrid from "./CategoryGrid";
+
 export default function Home (props) {
-    return <div>
-        <h1>Home!</h1>
-    </div>
+    return (
+        <div>
+            <Hero />
+            <TrendingSection />
+            <CategoryGrid />
+        </div>
+    );
 }
