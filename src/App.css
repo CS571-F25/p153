@@ -1,10 +1,3 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -35,6 +28,7 @@
 
 .card {
   padding: 2em;
+  background-color: #FFFFFF;
 }
 
 .read-the-docs {
@@ -43,4 +37,74 @@
 
 body {
   padding-top: 5rem;  
+  background-color: #FAF7F2;
+  color: #3A2E25;
+}
+
+#root {
+  background-color: #FAF7F2;
+}
+
+.btn.btn-bakery {
+  background-color: #C8A97E;
+  border-color: #C8A97E;
+  color: #3A2E25;
+}
+
+.btn.btn-bakery:hover {
+  background-color: #B8976E;
+  border-color: #B8976E;
+  color: #3A2E25;
+}
+
+.app-bg {
+  background-color: #FAF7F2;
+  color: #3A2E25;
+}
+
+.navbar-bakery {
+  background-color: #E6D8C3;
+}
+
+.navbar-bakery .navbar-brand,
+.navbar-bakery .nav-link {
+  color: #3A2E25;
+}
+
+.navbar-bakery .nav-link:hover {
+  color: #8B6F47;
+}
+
+.card-bakery {
+  background-color: #FFFDF8;
+  border: 1px solid #E4D8C4;
+}
+
+.category-btn {
+  width: 70px;
+  height: 70px;
+  padding: 0;             
+  border-radius: 50%;
+  background-color: #E6D8C3;
+  border: 1px solid #D6C4A8;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  line-height: 1;         
+}
+
+.category-btn:hover {
+  background-color: #D8C7AE;
+}
+
+.category-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.category-label {
+  font-size: 0.9rem;
+  color: #3A2E25;
 }

@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { Container, Form, Button, Alert } from "react-bootstrap";
+import { Form, Button, Alert } from "react-bootstrap";
+import PageContainer from "./PageContainer";
 
-export default function SubmitRecipe() {
+export default function SubmitRecipe({ onAddRecipe }) {
     const [title, setTitle] = useState("");
     const [image, setImage] = useState("");
+    const [description, setDescription] = useState("");
     const [ingredients, setIngredients] = useState("");
     const [steps, setSteps] = useState("");
     const [submitted, setSubmitted] = useState(false);
@@ -11,20 +13,24 @@ export default function SubmitRecipe() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // For now, just show a success message
-        console.log("Recipe submitted:", { title, image, ingredients, steps });
+        onAddRecipe({
+            title,
+            img: image || "https://placehold.co/300x200",
+            description,
+            ingredients,
+            steps
+        });
 
         setSubmitted(true);
-
-        // Clear fields
         setTitle("");
         setImage("");
+        setDescription("");
         setIngredients("");
         setSteps("");
     };
 
     return (
-        <Container className="my-5" style={{ maxWidth: "700px" }}>
+        <PageContainer>
             <h1 className="mb-4">Submit a Recipe</h1>
 
             {submitted && (
@@ -35,7 +41,7 @@ export default function SubmitRecipe() {
 
             <Form onSubmit={handleSubmit}>
 
-                <Form.Group className="mb-3">
+                <Form.Group className="mb-3" controlId="recipeTitle">
                     <Form.Label>Recipe Title</Form.Label>
                     <Form.Control
                         type="text"
@@ -46,7 +52,7 @@ export default function SubmitRecipe() {
                     />
                 </Form.Group>
 
-                <Form.Group className="mb-3">
+                <Form.Group className="mb-3" controlId="recipeImage">
                     <Form.Label>Image URL</Form.Label>
                     <Form.Control
                         type="text"
@@ -56,7 +62,18 @@ export default function SubmitRecipe() {
                     />
                 </Form.Group>
 
-                <Form.Group className="mb-3">
+                <Form.Group className="mb-3" controlId="recipeDescription">
+                    <Form.Label>Short Description</Form.Label>
+                    <Form.Control
+                        type="text"
+                        placeholder="Brief description of the recipe"
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                        required
+                    />
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="recipeIngredients">
                     <Form.Label>Ingredients</Form.Label>
                     <Form.Control
                         as="textarea"
@@ -68,7 +85,7 @@ export default function SubmitRecipe() {
                     />
                 </Form.Group>
 
-                <Form.Group className="mb-3">
+                <Form.Group className="mb-3" controlId="recipeSteps">
                     <Form.Label>Steps</Form.Label>
                     <Form.Control
                         as="textarea"
@@ -80,10 +97,10 @@ export default function SubmitRecipe() {
                     />
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
+                <Button variant="secondary" className="btn-bakery" type="submit">
                     Submit Recipe
                 </Button>
             </Form>
-        </Container>
+        </PageContainer>
     );
 }

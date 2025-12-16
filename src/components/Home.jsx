@@ -2,12 +2,12 @@ import Hero from "./Hero";
 import TrendingSection from "./TrendingSection";
 import CategoryGrid from "./CategoryGrid";
 
-export default function Home (props) {
+export default function Home ({ recipes, onLike }) {
     return (
         <div>
             <Hero />
-            <TrendingSection />
             <CategoryGrid />
+            <TrendingSection recipes={recipes} onLike={onLike} />
         </div>
     );
 }

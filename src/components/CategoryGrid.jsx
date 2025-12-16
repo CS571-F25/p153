@@ -1,24 +1,23 @@
 import { Container, Row, Col, Button } from "react-bootstrap";
+import CategoryButton from "./CategoryButton";
 
 const categories = [
-    "Breads",
-    "Cookies",
-    "Cakes",
-    "Pastries",
-    "Pies",
-    "Specialty Desserts"
+    { name: "Breads", icon: "🍞" },
+    { name: "Cookies", icon: "🍪" },
+    { name: "Cakes", icon: "🎂" },
+    { name: "Pastries", icon: "🥐" },
+    { name: "Pies", icon: "🥧" },
+    { name: "Specialty Desserts", icon: "🧁" }
 ];
 
 export default function CategoryGrid() {
     return (
         <Container className="my-5">
-            <h2 className="mb-4">Browse by Category</h2>
-            <Row>
-                {categories.map((cat, idx) => (
-                    <Col md={4} className="mb-3" key={idx}>
-                        <Button variant="outline-secondary" className="w-100 py-3">
-                            {cat}
-                        </Button>
+            <h2 className="mb-4 text-center">Browse by Category</h2>
+            <Row className="justify-content-center">
+                {categories.map(cat => (
+                    <Col key={cat.name} xs={6} sm={4} md={2} className="mb-4">
+                        <CategoryButton icon={cat.icon} name={cat.name} />
                     </Col>
                 ))}
             </Row>

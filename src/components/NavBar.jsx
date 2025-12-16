@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 export default function NavBar() {
     return (
-        <Navbar bg="light" expand="lg" fixed="top" className="shadow-sm">
+        <Navbar expand="lg" fixed="top" className="shadow-sm navbar-bakery">
             <Container>
                 <Navbar.Brand as={Link} to="/">Our Baking Book</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -21,10 +21,6 @@ export default function NavBar() {
 
                         <Nav.Link as={Link} to="/submit">
                             Submit Recipe
-                        </Nav.Link>
-
-                        <Nav.Link as={Link} to="/about">
-                            About Us
                         </Nav.Link>
 
                     </Nav>
